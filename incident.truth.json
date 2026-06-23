@@ -1,0 +1,15 @@
+{
+  "root_cause": "connection_pool_exhaustion",
+  "service": "payments-service",
+  "host": "payments-service-1",
+  "downstream": "payments-db",
+  "summary": "A sharp traffic spike drove DB connection pool usage to its configured max, causing request timeouts and a sustained spike in p99 latency and error rate. The pool size, not the database itself, is the bottleneck.",
+  "expected_signals": [
+    "active_connections flatlining at pool max",
+    "latency.p99 climbing sharply after the spike",
+    "'Timeout waiting for connection from pool' errors in logs"
+  ],
+  "suggested_fix": "Increase pool size as a short-term mitigation; add backpressure / request queuing and investigate whether the traffic spike was legitimate or a retry storm from an upstream caller.",
+  "incident_id": "INC-8D0FF5E8",
+  "scenario": "connection_pool_exhaustion"
+}

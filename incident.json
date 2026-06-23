@@ -1,0 +1,1108 @@
+{
+  "incident_id": "INC-8D0FF5E8",
+  "alert": {
+    "fired_at": "2026-06-11T09:15:00Z",
+    "service": "payments-service",
+    "title": "Elevated latency / error rate on payments-service"
+  },
+  "logs": [
+    {
+      "timestamp": "2026-06-11T09:00:00Z",
+      "level": "INFO",
+      "service": "auth-service",
+      "host": "auth-service-3",
+      "message": "Health check OK"
+    },
+    {
+      "timestamp": "2026-06-11T09:01:00Z",
+      "level": "INFO",
+      "service": "auth-service",
+      "host": "auth-service-3",
+      "message": "Request dd0881a6d5 completed in 79ms"
+    },
+    {
+      "timestamp": "2026-06-11T09:01:40Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-2",
+      "message": "Scheduled job 'cleanup' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:02:20Z",
+      "level": "INFO",
+      "service": "auth-service",
+      "host": "auth-service-1",
+      "message": "Scheduled job 'cleanup' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:03:00Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-2",
+      "message": "Scheduled job 'sync-inventory' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:04:00Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-3",
+      "message": "Scheduled job 'sync-inventory' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:04:20Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-2",
+      "message": "Connection established to downstream payments-service"
+    },
+    {
+      "timestamp": "2026-06-11T09:05:00Z",
+      "level": "INFO",
+      "service": "inventory-service",
+      "host": "inventory-service-3",
+      "message": "Scheduled job 'reconcile-orders' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:05:40Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-1",
+      "message": "Health check OK"
+    },
+    {
+      "timestamp": "2026-06-11T09:06:00Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-2",
+      "message": "Connection established to downstream auth-service"
+    },
+    {
+      "timestamp": "2026-06-11T09:06:05Z",
+      "level": "WARN",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Incoming request rate increased 6x over baseline (deploy_id unrelated)"
+    },
+    {
+      "timestamp": "2026-06-11T09:06:20Z",
+      "level": "INFO",
+      "service": "api-gateway",
+      "host": "api-gateway-1",
+      "message": "Health check OK"
+    },
+    {
+      "timestamp": "2026-06-11T09:06:40Z",
+      "level": "INFO",
+      "service": "auth-service",
+      "host": "auth-service-1",
+      "message": "Scheduled job 'sync-inventory' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:06:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:07:00Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:07:00Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-1",
+      "message": "Health check OK"
+    },
+    {
+      "timestamp": "2026-06-11T09:07:20Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-1",
+      "message": "Request 747f58c61f completed in 86ms"
+    },
+    {
+      "timestamp": "2026-06-11T09:07:30Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:07:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:08:00Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:08:15Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:08:30Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:08:40Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-2",
+      "message": "Health check OK"
+    },
+    {
+      "timestamp": "2026-06-11T09:08:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:09:00Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:09:00Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-2",
+      "message": "Processed batch of 71 items"
+    },
+    {
+      "timestamp": "2026-06-11T09:09:30Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:09:40Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-3",
+      "message": "Processed batch of 124 items"
+    },
+    {
+      "timestamp": "2026-06-11T09:09:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:10:00Z",
+      "level": "INFO",
+      "service": "inventory-service",
+      "host": "inventory-service-1",
+      "message": "Connection established to downstream payments-service"
+    },
+    {
+      "timestamp": "2026-06-11T09:10:15Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:10:20Z",
+      "level": "INFO",
+      "service": "api-gateway",
+      "host": "api-gateway-2",
+      "message": "Scheduled job 'cleanup' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:10:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:11:15Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:11:20Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-2",
+      "message": "Scheduled job 'reconcile-orders' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:11:30Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:11:40Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-1",
+      "message": "Scheduled job 'sync-inventory' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:11:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:12:00Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:12:00Z",
+      "level": "INFO",
+      "service": "notifications-worker",
+      "host": "notifications-worker-2",
+      "message": "Request 1bae20df21 completed in 168ms"
+    },
+    {
+      "timestamp": "2026-06-11T09:12:15Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:13:00Z",
+      "level": "INFO",
+      "service": "api-gateway",
+      "host": "api-gateway-2",
+      "message": "Request 1d09cd2c57 completed in 130ms"
+    },
+    {
+      "timestamp": "2026-06-11T09:13:20Z",
+      "level": "INFO",
+      "service": "api-gateway",
+      "host": "api-gateway-3",
+      "message": "Health check OK"
+    },
+    {
+      "timestamp": "2026-06-11T09:13:40Z",
+      "level": "INFO",
+      "service": "api-gateway",
+      "host": "api-gateway-2",
+      "message": "Request 359afbdd6c completed in 106ms"
+    },
+    {
+      "timestamp": "2026-06-11T09:13:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:14:00Z",
+      "level": "INFO",
+      "service": "api-gateway",
+      "host": "api-gateway-3",
+      "message": "Cache hit for key user:4228"
+    },
+    {
+      "timestamp": "2026-06-11T09:14:15Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:14:20Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-1",
+      "message": "Processed batch of 100 items"
+    },
+    {
+      "timestamp": "2026-06-11T09:14:30Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:14:40Z",
+      "level": "INFO",
+      "service": "orders-service",
+      "host": "orders-service-1",
+      "message": "Scheduled job 'cleanup' completed successfully"
+    },
+    {
+      "timestamp": "2026-06-11T09:14:45Z",
+      "level": "ERROR",
+      "service": "payments-service",
+      "host": "payments-service-1",
+      "message": "Timeout waiting for connection from pool 'payments-db' (active=50, max=50, waited=5000ms)"
+    },
+    {
+      "timestamp": "2026-06-11T09:15:00Z",
+      "level": "INFO",
+      "service": "auth-service",
+      "host": "auth-service-3",
+      "message": "Connection established to downstream api-gateway"
+    }
+  ],
+  "metrics": {
+    "db.active_connections": {
+      "payments-service": [
+        {
+          "timestamp": "2026-06-11T09:00:00Z",
+          "value": 11.1
+        },
+        {
+          "timestamp": "2026-06-11T09:00:15Z",
+          "value": 12.2
+        },
+        {
+          "timestamp": "2026-06-11T09:00:30Z",
+          "value": 13.0
+        },
+        {
+          "timestamp": "2026-06-11T09:00:45Z",
+          "value": 13.6
+        },
+        {
+          "timestamp": "2026-06-11T09:01:00Z",
+          "value": 12.6
+        },
+        {
+          "timestamp": "2026-06-11T09:01:15Z",
+          "value": 10.2
+        },
+        {
+          "timestamp": "2026-06-11T09:01:30Z",
+          "value": 9.3
+        },
+        {
+          "timestamp": "2026-06-11T09:01:45Z",
+          "value": 13.1
+        },
+        {
+          "timestamp": "2026-06-11T09:02:00Z",
+          "value": 12.5
+        },
+        {
+          "timestamp": "2026-06-11T09:02:15Z",
+          "value": 11.9
+        },
+        {
+          "timestamp": "2026-06-11T09:02:30Z",
+          "value": 11.4
+        },
+        {
+          "timestamp": "2026-06-11T09:02:45Z",
+          "value": 8.1
+        },
+        {
+          "timestamp": "2026-06-11T09:03:00Z",
+          "value": 11.8
+        },
+        {
+          "timestamp": "2026-06-11T09:03:15Z",
+          "value": 14.4
+        },
+        {
+          "timestamp": "2026-06-11T09:03:30Z",
+          "value": 15.0
+        },
+        {
+          "timestamp": "2026-06-11T09:03:45Z",
+          "value": 13.9
+        },
+        {
+          "timestamp": "2026-06-11T09:04:00Z",
+          "value": 10.4
+        },
+        {
+          "timestamp": "2026-06-11T09:04:15Z",
+          "value": 13.5
+        },
+        {
+          "timestamp": "2026-06-11T09:04:30Z",
+          "value": 10.9
+        },
+        {
+          "timestamp": "2026-06-11T09:04:45Z",
+          "value": 14.2
+        },
+        {
+          "timestamp": "2026-06-11T09:05:00Z",
+          "value": 9.8
+        },
+        {
+          "timestamp": "2026-06-11T09:05:15Z",
+          "value": 8.7
+        },
+        {
+          "timestamp": "2026-06-11T09:05:30Z",
+          "value": 13.4
+        },
+        {
+          "timestamp": "2026-06-11T09:05:45Z",
+          "value": 8.7
+        },
+        {
+          "timestamp": "2026-06-11T09:06:00Z",
+          "value": 15.0
+        },
+        {
+          "timestamp": "2026-06-11T09:06:15Z",
+          "value": 30.0
+        },
+        {
+          "timestamp": "2026-06-11T09:06:30Z",
+          "value": 45.0
+        },
+        {
+          "timestamp": "2026-06-11T09:06:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:07:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:07:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:07:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:07:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:08:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:08:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:08:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:08:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:09:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:09:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:09:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:09:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:10:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:10:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:10:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:10:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:11:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:11:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:11:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:11:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:12:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:12:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:12:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:12:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:13:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:13:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:13:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:13:45Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:14:00Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:14:15Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:14:30Z",
+          "value": 50
+        },
+        {
+          "timestamp": "2026-06-11T09:14:45Z",
+          "value": 50
+        }
+      ]
+    },
+    "latency.p99_ms": {
+      "payments-service": [
+        {
+          "timestamp": "2026-06-11T09:00:00Z",
+          "value": 47.5
+        },
+        {
+          "timestamp": "2026-06-11T09:00:15Z",
+          "value": 48.2
+        },
+        {
+          "timestamp": "2026-06-11T09:00:30Z",
+          "value": 25.3
+        },
+        {
+          "timestamp": "2026-06-11T09:00:45Z",
+          "value": 41.0
+        },
+        {
+          "timestamp": "2026-06-11T09:01:00Z",
+          "value": 49.8
+        },
+        {
+          "timestamp": "2026-06-11T09:01:15Z",
+          "value": 33.9
+        },
+        {
+          "timestamp": "2026-06-11T09:01:30Z",
+          "value": 29.5
+        },
+        {
+          "timestamp": "2026-06-11T09:01:45Z",
+          "value": 35.4
+        },
+        {
+          "timestamp": "2026-06-11T09:02:00Z",
+          "value": 27.3
+        },
+        {
+          "timestamp": "2026-06-11T09:02:15Z",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-06-11T09:02:30Z",
+          "value": 44.6
+        },
+        {
+          "timestamp": "2026-06-11T09:02:45Z",
+          "value": 28.4
+        },
+        {
+          "timestamp": "2026-06-11T09:03:00Z",
+          "value": 37.1
+        },
+        {
+          "timestamp": "2026-06-11T09:03:15Z",
+          "value": 43.7
+        },
+        {
+          "timestamp": "2026-06-11T09:03:30Z",
+          "value": 25.4
+        },
+        {
+          "timestamp": "2026-06-11T09:03:45Z",
+          "value": 42.5
+        },
+        {
+          "timestamp": "2026-06-11T09:04:00Z",
+          "value": 23.8
+        },
+        {
+          "timestamp": "2026-06-11T09:04:15Z",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-06-11T09:04:30Z",
+          "value": 25.4
+        },
+        {
+          "timestamp": "2026-06-11T09:04:45Z",
+          "value": 43.0
+        },
+        {
+          "timestamp": "2026-06-11T09:05:00Z",
+          "value": 40.2
+        },
+        {
+          "timestamp": "2026-06-11T09:05:15Z",
+          "value": 45.7
+        },
+        {
+          "timestamp": "2026-06-11T09:05:30Z",
+          "value": 35.9
+        },
+        {
+          "timestamp": "2026-06-11T09:05:45Z",
+          "value": 47.0
+        },
+        {
+          "timestamp": "2026-06-11T09:06:00Z",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-06-11T09:06:15Z",
+          "value": 263.9
+        },
+        {
+          "timestamp": "2026-06-11T09:06:30Z",
+          "value": 463.9
+        },
+        {
+          "timestamp": "2026-06-11T09:06:45Z",
+          "value": 718.2
+        },
+        {
+          "timestamp": "2026-06-11T09:07:00Z",
+          "value": 941.3
+        },
+        {
+          "timestamp": "2026-06-11T09:07:15Z",
+          "value": 944.1
+        },
+        {
+          "timestamp": "2026-06-11T09:07:30Z",
+          "value": 919.5
+        },
+        {
+          "timestamp": "2026-06-11T09:07:45Z",
+          "value": 948.5
+        },
+        {
+          "timestamp": "2026-06-11T09:08:00Z",
+          "value": 928.3
+        },
+        {
+          "timestamp": "2026-06-11T09:08:15Z",
+          "value": 940.7
+        },
+        {
+          "timestamp": "2026-06-11T09:08:30Z",
+          "value": 946.3
+        },
+        {
+          "timestamp": "2026-06-11T09:08:45Z",
+          "value": 924.3
+        },
+        {
+          "timestamp": "2026-06-11T09:09:00Z",
+          "value": 917.0
+        },
+        {
+          "timestamp": "2026-06-11T09:09:15Z",
+          "value": 928.3
+        },
+        {
+          "timestamp": "2026-06-11T09:09:30Z",
+          "value": 934.2
+        },
+        {
+          "timestamp": "2026-06-11T09:09:45Z",
+          "value": 937.4
+        },
+        {
+          "timestamp": "2026-06-11T09:10:00Z",
+          "value": 919.3
+        },
+        {
+          "timestamp": "2026-06-11T09:10:15Z",
+          "value": 944.2
+        },
+        {
+          "timestamp": "2026-06-11T09:10:30Z",
+          "value": 937.3
+        },
+        {
+          "timestamp": "2026-06-11T09:10:45Z",
+          "value": 938.4
+        },
+        {
+          "timestamp": "2026-06-11T09:11:00Z",
+          "value": 949.2
+        },
+        {
+          "timestamp": "2026-06-11T09:11:15Z",
+          "value": 915.2
+        },
+        {
+          "timestamp": "2026-06-11T09:11:30Z",
+          "value": 947.6
+        },
+        {
+          "timestamp": "2026-06-11T09:11:45Z",
+          "value": 927.1
+        },
+        {
+          "timestamp": "2026-06-11T09:12:00Z",
+          "value": 937.7
+        },
+        {
+          "timestamp": "2026-06-11T09:12:15Z",
+          "value": 912.5
+        },
+        {
+          "timestamp": "2026-06-11T09:12:30Z",
+          "value": 941.4
+        },
+        {
+          "timestamp": "2026-06-11T09:12:45Z",
+          "value": 927.7
+        },
+        {
+          "timestamp": "2026-06-11T09:13:00Z",
+          "value": 942.2
+        },
+        {
+          "timestamp": "2026-06-11T09:13:15Z",
+          "value": 917.8
+        },
+        {
+          "timestamp": "2026-06-11T09:13:30Z",
+          "value": 945.7
+        },
+        {
+          "timestamp": "2026-06-11T09:13:45Z",
+          "value": 943.7
+        },
+        {
+          "timestamp": "2026-06-11T09:14:00Z",
+          "value": 947.5
+        },
+        {
+          "timestamp": "2026-06-11T09:14:15Z",
+          "value": 922.7
+        },
+        {
+          "timestamp": "2026-06-11T09:14:30Z",
+          "value": 917.7
+        },
+        {
+          "timestamp": "2026-06-11T09:14:45Z",
+          "value": 939.5
+        }
+      ]
+    },
+    "error_rate": {
+      "payments-service": [
+        {
+          "timestamp": "2026-06-11T09:00:00Z",
+          "value": 0.05
+        },
+        {
+          "timestamp": "2026-06-11T09:00:15Z",
+          "value": 0.11
+        },
+        {
+          "timestamp": "2026-06-11T09:00:30Z",
+          "value": 0.05
+        },
+        {
+          "timestamp": "2026-06-11T09:00:45Z",
+          "value": 0.13
+        },
+        {
+          "timestamp": "2026-06-11T09:01:00Z",
+          "value": 0.16
+        },
+        {
+          "timestamp": "2026-06-11T09:01:15Z",
+          "value": 0.05
+        },
+        {
+          "timestamp": "2026-06-11T09:01:30Z",
+          "value": 0.13
+        },
+        {
+          "timestamp": "2026-06-11T09:01:45Z",
+          "value": 0.1
+        },
+        {
+          "timestamp": "2026-06-11T09:02:00Z",
+          "value": 0.15
+        },
+        {
+          "timestamp": "2026-06-11T09:02:15Z",
+          "value": 0.29
+        },
+        {
+          "timestamp": "2026-06-11T09:02:30Z",
+          "value": 0.21
+        },
+        {
+          "timestamp": "2026-06-11T09:02:45Z",
+          "value": 0.03
+        },
+        {
+          "timestamp": "2026-06-11T09:03:00Z",
+          "value": 0.21
+        },
+        {
+          "timestamp": "2026-06-11T09:03:15Z",
+          "value": 0.1
+        },
+        {
+          "timestamp": "2026-06-11T09:03:30Z",
+          "value": 0.1
+        },
+        {
+          "timestamp": "2026-06-11T09:03:45Z",
+          "value": 0.29
+        },
+        {
+          "timestamp": "2026-06-11T09:04:00Z",
+          "value": 0.22
+        },
+        {
+          "timestamp": "2026-06-11T09:04:15Z",
+          "value": 0.14
+        },
+        {
+          "timestamp": "2026-06-11T09:04:30Z",
+          "value": 0.2
+        },
+        {
+          "timestamp": "2026-06-11T09:04:45Z",
+          "value": 0.29
+        },
+        {
+          "timestamp": "2026-06-11T09:05:00Z",
+          "value": 0.04
+        },
+        {
+          "timestamp": "2026-06-11T09:05:15Z",
+          "value": 0.27
+        },
+        {
+          "timestamp": "2026-06-11T09:05:30Z",
+          "value": 0.12
+        },
+        {
+          "timestamp": "2026-06-11T09:05:45Z",
+          "value": 0.13
+        },
+        {
+          "timestamp": "2026-06-11T09:06:00Z",
+          "value": 1.59
+        },
+        {
+          "timestamp": "2026-06-11T09:06:15Z",
+          "value": 7.04
+        },
+        {
+          "timestamp": "2026-06-11T09:06:30Z",
+          "value": 17.06
+        },
+        {
+          "timestamp": "2026-06-11T09:06:45Z",
+          "value": 26.14
+        },
+        {
+          "timestamp": "2026-06-11T09:07:00Z",
+          "value": 35.15
+        },
+        {
+          "timestamp": "2026-06-11T09:07:15Z",
+          "value": 35.71
+        },
+        {
+          "timestamp": "2026-06-11T09:07:30Z",
+          "value": 33.45
+        },
+        {
+          "timestamp": "2026-06-11T09:07:45Z",
+          "value": 35.46
+        },
+        {
+          "timestamp": "2026-06-11T09:08:00Z",
+          "value": 33.05
+        },
+        {
+          "timestamp": "2026-06-11T09:08:15Z",
+          "value": 34.87
+        },
+        {
+          "timestamp": "2026-06-11T09:08:30Z",
+          "value": 33.17
+        },
+        {
+          "timestamp": "2026-06-11T09:08:45Z",
+          "value": 35.52
+        },
+        {
+          "timestamp": "2026-06-11T09:09:00Z",
+          "value": 36.3
+        },
+        {
+          "timestamp": "2026-06-11T09:09:15Z",
+          "value": 36.23
+        },
+        {
+          "timestamp": "2026-06-11T09:09:30Z",
+          "value": 36.12
+        },
+        {
+          "timestamp": "2026-06-11T09:09:45Z",
+          "value": 34.32
+        },
+        {
+          "timestamp": "2026-06-11T09:10:00Z",
+          "value": 34.3
+        },
+        {
+          "timestamp": "2026-06-11T09:10:15Z",
+          "value": 34.58
+        },
+        {
+          "timestamp": "2026-06-11T09:10:30Z",
+          "value": 33.71
+        },
+        {
+          "timestamp": "2026-06-11T09:10:45Z",
+          "value": 34.44
+        },
+        {
+          "timestamp": "2026-06-11T09:11:00Z",
+          "value": 34.48
+        },
+        {
+          "timestamp": "2026-06-11T09:11:15Z",
+          "value": 34.57
+        },
+        {
+          "timestamp": "2026-06-11T09:11:30Z",
+          "value": 34.44
+        },
+        {
+          "timestamp": "2026-06-11T09:11:45Z",
+          "value": 33.4
+        },
+        {
+          "timestamp": "2026-06-11T09:12:00Z",
+          "value": 33.05
+        },
+        {
+          "timestamp": "2026-06-11T09:12:15Z",
+          "value": 34.24
+        },
+        {
+          "timestamp": "2026-06-11T09:12:30Z",
+          "value": 35.34
+        },
+        {
+          "timestamp": "2026-06-11T09:12:45Z",
+          "value": 34.3
+        },
+        {
+          "timestamp": "2026-06-11T09:13:00Z",
+          "value": 35.66
+        },
+        {
+          "timestamp": "2026-06-11T09:13:15Z",
+          "value": 33.82
+        },
+        {
+          "timestamp": "2026-06-11T09:13:30Z",
+          "value": 36.3
+        },
+        {
+          "timestamp": "2026-06-11T09:13:45Z",
+          "value": 33.76
+        },
+        {
+          "timestamp": "2026-06-11T09:14:00Z",
+          "value": 35.47
+        },
+        {
+          "timestamp": "2026-06-11T09:14:15Z",
+          "value": 36.29
+        },
+        {
+          "timestamp": "2026-06-11T09:14:30Z",
+          "value": 33.02
+        },
+        {
+          "timestamp": "2026-06-11T09:14:45Z",
+          "value": 36.83
+        }
+      ]
+    }
+  }
+}
