@@ -1,0 +1,51 @@
+# Cache Outage / Stampede
+
+**Severity:** P1 / P2
+**Affected layer:** Application ↔ Cache (Redis/Memcached)
+
+## Summary
+
+A caching layer (e.g. Redis) becomes unavailable or is flushed. Every request that would have been a cache hit now falls through to the database, and the sudden load surge — a "stampede" — can overwhelm the backend that the cache was protecting.
+
+## Symptoms
+
+- `cache.hit_rate` drops sharply toward zero.
+- Database load (`db.active_connections`, query rate) spikes immediately after.
+- `latency.p99_ms` rises across all cached endpoints at once.
+- Logs contain `connection refused` to the cache host or `cache miss` floods.
+
+## Likely causes
+
+- The cache server crashed, restarted, or was evicted/flushed.
+- A network partition between the service and the cache.
+- Cache memory exhaustion triggering mass eviction.
+- A deploy that changed cache keys, invalidating everything at once.
+
+## Diagnosis
+
+1. Confirm `cache.hit_rate` collapsed and DB load rose in lockstep.
+2. Check whether the cache process is up and reachable.
+3. Determine if keys changed (deploy) vs the cache being down (infra).
+4. Watch for thundering-herd behavior (many identical concurrent misses).
+
+## Remediation
+
+### Immediate mitigation
+- Restore/restart the cache server.
+- If the DB is being overwhelmed, add request coalescing so concurrent misses for the same key result in one DB read.
+- Temporarily shed load or serve stale data if available.
+
+### Root-cause fix
+- Add cache redundancy/failover so a single node loss is survivable.
+- Implement staggered TTLs to avoid synchronized mass expiry.
+- Warm the cache after restarts before reopening full traffic.
+
+## Prevention
+
+- Alert on `cache.hit_rate` dropping below baseline.
+- Use request coalescing / single-flight for hot keys by default.
+
+## Related runbooks
+
+- `connection-pool-exhaustion.md`
+- `high-cpu-saturation.md`
