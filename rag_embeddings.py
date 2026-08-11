@@ -3,7 +3,8 @@ import chromadb
 import os
 import collections
 
-# note: created embedding chunks, now time to continue RAG
+_model = None
+_collection = None
 
 def create_embeddings():
     # Load the embedding model
@@ -28,7 +29,7 @@ def create_embeddings():
             for line in lines:
                 if separator in line:
                     file_str += "##"
-                    line.lstrip("#").strip()
+                    id_description.append(line.lstrip("#").strip())
                 elif "**Severity:**" in line: 
                     severity = line.lstrip("#").strip()
                 else:
@@ -56,8 +57,19 @@ def create_embeddings():
     embeddings = model.encode(documents, normalize_embeddings=True).tolist()
     collection.add(ids=ids, embeddings=embeddings, documents=documents, metadatas=metadatas)
 
-def search(query, model, collection, k=3):
-    INSTRUCTION = "Represent this sentence for searching relevant passges: "
+def _resources():
+    global _model, _collection
+    if _model is None:
+        _model = SentenceTransformer("BAAI/bge-base-en-v1.5")
+        client = chromadb.PersistentClient(path="chroma_db")
+        _collection = client.get_or_create_collection(
+            "runbooks", metadata={"hnsw:space": "cosine"}
+        )
+    return _model, _collection
+
+def search(query, k=3):
+    model, collection = _resources()
+    INSTRUCTION = "Represent this sentence for searching relevant passages: "
     q_emb = model.encode(
         INSTRUCTION + query,         
         normalize_embeddings=True,

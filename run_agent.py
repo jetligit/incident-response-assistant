@@ -2,6 +2,12 @@ import anthropic
 from dotenv import load_dotenv
 import os
 import json
+from rag_embeddings import search          
+
+"""
+    Next step: Run agent with a scenario
+"""
+
 
 load_dotenv()
 
@@ -96,11 +102,7 @@ TOOL_DISPATCH = {
 }
 
 
-def run_agent(history:list[dict]):
-    # Phase 2 is supposed to be a separate call for run_agent with its own system_prompt. I am running RAG manually between Phase 1 and Phase 2.
-
-
-
+def determine_retrieval_params(history:list[dict]):
     client = anthropic.Anthropic(api_key=os.getenv("CLAUDE_LLM_API_KEY"))
 
     tools = TOOLS
@@ -130,11 +132,54 @@ def run_agent(history:list[dict]):
         - When you have enough evidence to describe the symptoms clearly, stop calling
         tools and end with a short, factual summary of what you found (the observed
         symptoms and affected component) — no analysis, just the evidence.
+    """
 
-        
+    messages = list(history or [])
 
-        Phase 2 — Grounded diagnosis (system prompt)
+    # maximum 5 iterations 
+    for i in range(5): 
+        response = client.messages.create(
+            model="claude-opus-4-8",
+            max_tokens=4096,
+            tools=tools,
+            system=system_prompt,
+            messages=messages
+        )
 
+        messages.append({"role": "assistant", "content": response.content})
+
+        if response.stop_reason == "tool_use":
+            tool_results = []
+            for block in response.content:
+                if block.type == "tool_use":
+                    output = TOOL_DISPATCH[block.name](**block.input)
+                    tool_results.append({
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": json.dumps(output),
+                    })
+            messages.append({"role": "user", "content": tool_results})
+        else:
+            summary = "".join(b.text for b in response.content if b.type == "text")
+            return messages, summary        # hand both back to the caller
+
+    # Fell through all 5 iterations still calling tools. Force a final summary
+    # with no tools so Claude has to answer with text instead of another tool call.
+    response = client.messages.create(
+        model="claude-opus-4-8",
+        max_tokens=4096,
+        system=system_prompt,
+        messages=messages,                  # no tools -> must respond with text
+    )
+    messages.append({"role": "assistant", "content": response.content})
+    summary = "".join(b.text for b in response.content if b.type == "text")
+    return messages, summary
+
+
+def run_diagnosis(messages, chunks):
+    client = anthropic.Anthropic(api_key=os.getenv("CLAUDE_LLM_API_KEY"))
+
+    system_prompt = f"""
         You are an incident responder. You are given: the original alert, the logs and
         metrics gathered during investigation, and relevant runbook sections retrieved
         from the team's knowledge base.
@@ -162,34 +207,34 @@ def run_agent(history:list[dict]):
         before execution. Recommend these actions; do not assume they run automatically.
     """
 
-    messages = list(history or [])
+    # hand the LLM the runbooks (chunks) from RAG
+    messages = messages = [{
+        "role": "user",
+        "content": f"Relevant runbook sections:\n\n{chunks}\n\nNow produce the diagnosis."
+    }]
 
-    while True: 
+    # maximum 5 iterations 
+    for i in range(5): 
         response = client.messages.create(
             model="claude-opus-4-8",
             max_tokens=4096,
-            tools=tools,
             system=system_prompt,
             messages=messages
         )
+        
+        summary = "".join(b.text for b in response.content if b.type == "text")
+        return summary        # hand both back to the caller
 
-        messages.append({"role": "assistant", "content": response.content})
 
-        if response.stop_reason == "tool_use":
-            tool_results = []
-            for block in response.content:
-                if block.type == "tool_use":
-                    output = TOOL_DISPATCH[block.name](**block.input)
-                    tool_results.append({
-                        "type": "tool_result",
-                        "tool_use_id": block.id,
-                        "content": json.dumps(output),
-                    })
-            messages.append({"role": "user", "content": tool_results})
-        else:
-            for block in response.content:
-                if block.type == "text":
-                    print(block.text)
-            return messages
+def handle_incident(history):
+    # ---- Phase 1 ----
+    messages, summary = determine_retrieval_params(history)
+
+    # ---- THE SEAM: your two lines ----
+    summary = summary                        # already the final text from Phase 1
+    chunks = search(summary)                 # deterministic classic-RAG retrieval
+
+    # ---- Phase 2: separate call, own system prompt ----
+    return run_diagnosis(messages, chunks)   # a new function holding PHASE2_SYSTEM
         
 
