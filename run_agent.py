@@ -208,7 +208,7 @@ def run_diagnosis(messages, chunks):
     """
 
     # hand the LLM the runbooks (chunks) from RAG
-    messages = messages = [{
+    messages = [{
         "role": "user",
         "content": f"Relevant runbook sections:\n\n{chunks}\n\nNow produce the diagnosis."
     }]
